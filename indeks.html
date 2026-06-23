@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latihan HTML/CSS/Javascript</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- baris1: Header  -->
+    <header class="header">
+      <h1 class="header-title">Templ0ate Admin</h1>
+      <div  class="user-info">
+        <span>Selamat datang, Admin!</span>
+        <a href="#" class="logout-btn">Logout</a>
+      </div>
+    </header>
+    <!-- baris2: Menu dan kontent -->
+    <div class="container">
+      <!-- baris2 kolum1 : Menu -->
+      <aside class="sidebar">
+        <nav>
+          <h2 class="sidebar-title">Menu Utama</h2>
+          <ul>
+            <li><a href="#" class="menu-item">Dashboard</a></li>
+            <li><a href="#" class="menu-item">User</a></li>
+            <li><a href="#" class="menu-item">Products</a></li>
+            <li><a href="#" class="menu-item">Reports</a></li>
+            <li><a href="#" class="menu-item">Settings</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <!-- baris2 kolum2 : konten -->
+      <main class="main-content">
+        <h2 class="content-title">Dasboard</h2>
+        <div class="content-wrapper">
+          <p>Selamat datang di dashboard admin.</p>
+          <div class="stats-grid">
+            <div class="stat-card card-blue">
+              <h3>Total Users</h3>
+              <p>10</p>
+            </div>
+            <div class="stat-card card-green">
+              <h3>Total Products</h3>
+              <p>567</p>
+            </div>
+            <div class="stat-card card-yellow">
+              <h3>Sales Today</h3>
+              <p>34</p>
+            </div>
+          </div>
+          <br>
+          <hr>
+          <p id="paragrafTarget">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+            repudiandae dignissimos exercitationem quaerat enim qui provident 
+            laborum, consequuntur sed voluptate illo beatae, molestiae cumque,
+            amet quod consequatur id nostrum ducimus!
+          </p>
+          <button id="tombolUbah" class="logout-btn">Ubah Teks</button>
+          <br />
+          <hr />
+          <div class="galeri-container">
+            <h2>Galeri Pemandangan</h2>
+            <img 
+             id="gambarBesar"
+              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500" 
+             alt="Gambar pemandangan danau yang luas"
+             />
+            <div class="thumbnails">
+              <img 
+              class="thumbnail"
+              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=100"
+               alt="Gambar pemandangan danau yang luas"
+               >
+               <img class="thumbnail"
+                src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=100"
+                alt="Gambar pemandangan hutan berkabut dari atas"
+                />
+                <img class="thumbnail"
+                src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=100"
+                alt="Gambar pemandangan gunung dengan danau biru"
+                >
+                <img class="thumbnail"
+                src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=100"
+                alt="Gambar air terjun yang deras di antara bebatuan"
+                >
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- baris3 :Footer -->
+    <footer class="footer">
+      <p>Copyright &copy; 2025 | Maulida Rahmah</p>
+    </footer>
+    <script>
+  const tombolGaya = document.getElementById("tombolUbah");
+  const paragrafGaya = document.getElementById("paragrafTarget");
+
+  tombolGaya.addEventListener("click", function () {
+    // Ubah teksnya
+    paragrafGaya.innerHTML = "Teks dan gaya sudah diubah";
+
+    // Ubah warnanya menjadi biru
+    paragrafGaya.style.color = "blue";
+
+    // Ubah ukuran font menjadi lebih besar
+    paragrafGaya.style.fontSize = "20px";
+
+    // Tambahkan latar belakang
+    paragrafGaya.style.backgroundColor = "#e0e0e0";
+    paragrafGaya.style.padding = "10px";
+  });
+
+  // JavaScript untuk fungsionalitas galeri
+
+  // 1. Pilih elemen gambar besar
+  const gambarBesar = document.getElementById("gambarBesar");
+
+  // 2. Pilih semua elemen gambar kecil (thumbnail)
+  const thumbnails = document.querySelectorAll(".thumbnail");
+
+  // 3. Tambahkan event listener untuk setiap gambar kecil
+  thumbnails.forEach(function (thumb) {
+    thumb.addEventListener("click", function () {
+      // Ambil URL gambar kecil yang diklik
+      const sumbergambarkecil = thumb.src;
+
+      // Ubah URL gambar besar agar sesuai dengan gambar kecil yang diklik
+      gambarBesar.src = sumbergambarkecil.replace("w=100", "w=500");
+
+      // (Opsional) Ganti juga teks alt agar sesuai
+      gambarBesar.alt = thumb.alt;
+    });
+  });
+</script>
+  </body>
+</html>
